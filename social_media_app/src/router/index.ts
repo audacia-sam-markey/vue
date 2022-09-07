@@ -3,9 +3,11 @@ import PostView from "@/views/PostView.vue";
 import ChatView from "@/views/ChatView.vue";
 import SignIn from "@/views/SignIn.vue";
 import SignUp from "@/views/SignUp.vue";
+import { Routes } from "@/router/routes";
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-
+import AccountHome from "@/components/AccountHome.vue";
+const routeNames = new Routes();
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -31,8 +33,13 @@ const router = createRouter({
     },
     {
       path: "/sign-up",
-      name: "signUp",
+      name: routeNames.SignUp,
       component: SignUp,
+    },
+    {
+      path: "/account-home",
+      name: "accountHome",
+      component: AccountHome,
     },
   ],
 });

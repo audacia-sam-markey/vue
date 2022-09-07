@@ -23,6 +23,11 @@
           <ul>
             <li><router-link :to="{ name: 'signIn' }">Sign in</router-link></li>
             <li><router-link :to="{ name: 'signUp' }">Sign up</router-link></li>
+            <li>
+              <router-link :to="{ name: 'accountHome' }"
+                >Account Home</router-link
+              >
+            </li>
           </ul>
         </div>
       </li>
@@ -33,36 +38,30 @@
 </template>
 
 <script setup lang="ts">
-import { createRouter } from "vue-router";
-
-import type { Ref } from "vue";
-import { ref } from "vue";
-import { onBeforeRouteUpdate } from "vue-router";
 import { navigatinoStore } from "@/stores/navigationStore";
 
 const navOptions = navigatinoStore();
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 nav {
   position: sticky;
-  background-color: var(--foreground);
-  padding: 1rem 3rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  background-color: $foreground;
+  padding: 1rem 10rem;
+
+  @include flexTemp(row, center, space-between);
+
   font-size: 1.4rem;
-  border-bottom: 2px solid var(--background);
+  border-bottom: 2px solid $gray;
   .logo {
     font-size: 2rem;
   }
 
   ul {
-    align-items: center;
-    display: flex;
+    @include flexTemp(row, center, center);
 
     gap: 30px;
-    justify-content: center;
+
     list-style: none;
 
     :first-child {
@@ -75,27 +74,25 @@ nav {
   #profile-icon {
     cursor: pointer;
     position: relative;
-    display: flex;
-    align-items: flex-end;
+    @include flexTemp(row, flex-end, center);
+
     font-size: 2.4rem;
   }
   #profile-options {
-    bottom: -225%;
+    z-index: 200;
+    bottom: -300%;
     left: 0%;
-    width: 150%;
-    border: 1px solid var(--background);
-    background: var(--foreground);
-    border-radius: 1.5vmin;
+    width: 25vmin;
+    border: 1px solid $background;
+    background: $foreground;
+    border-radius: $rounded;
 
     position: absolute;
 
     ul {
       gap: 0;
-      justify-content: center;
-      display: flex;
-      flex-direction: column;
+      @include flexTemp(column, center, "");
       padding: 0.33rem;
-
       li {
         margin: 0.2rem;
       }
