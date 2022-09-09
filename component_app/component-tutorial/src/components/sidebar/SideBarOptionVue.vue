@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import type { sideBarOption } from "@/models/SideBarOptions.model";
+import type { sideBarOption } from "@/models/side-bar-options.model";
 import type { PropType } from "vue";
 
 const props = defineProps({

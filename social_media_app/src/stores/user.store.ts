@@ -20,6 +20,8 @@ export const UserStore = defineStore("UserStore", {
     toggleisUserLoggedIn(): void {
       // FIX LOGGING OUT ISSUE TOGGLING NOT WORKING AS MUCH
       this.isUserLoggedIn = !this.isUserLoggedIn;
+      console.log("setting localstorage to log user out");
+
       localS.setItem("isUserLoggedIn", (!this.isUserLoggedIn).toString());
     },
     changeCurrentUser(username: string): void {

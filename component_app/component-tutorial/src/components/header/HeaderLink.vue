@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import type { RouterLink } from "@/models/RouterLink.models";
+import type { RouterLink } from "@/models/router-link.models";
 import type { PropType } from "vue";
 
 const props = defineProps({

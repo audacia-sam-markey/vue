@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { RouterLink } from "@/models/RouterLink.models";
+import { RouterLink } from "@/models/router-link.models";
 import HeaderLink from "./HeaderLink.vue";
 
 const headerLinks: RouterLink[] = [

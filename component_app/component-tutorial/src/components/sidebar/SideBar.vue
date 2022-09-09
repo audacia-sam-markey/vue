@@ -12,7 +12,7 @@ Trending
 </template>
 
 <script setup lang="ts">
-import { sideBarOption } from "@/models/SideBarOptions.model";
+import { sideBarOption } from "@/models/side-bar-options.model";
 import SideBarOptionVue from "./SideBarOptionVue.vue";
 import Modal from "../Modal.vue";
 import { type Ref, ref } from "vue";
