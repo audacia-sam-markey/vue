@@ -29,11 +29,15 @@ function toggleModal() {
 
   justify-content: space-evenly;
   align-items: center;
-  margin: 1rem 0;
+  margin: 0.4rem 0;
   padding: 0.2rem 0.5rem;
   border-top: 2px solid #f1f1f1;
-
+  transition:background-color 0.2s ease-in-out;
   border-bottom: 2px solid #f1f1f1;
+
+  &:hover{
+    background-color: #fff;
+  }
 
   img {
     aspect-ratio: 1/1;
