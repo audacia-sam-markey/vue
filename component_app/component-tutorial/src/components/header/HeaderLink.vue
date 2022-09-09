@@ -1,12 +1,12 @@
 <template>
-  header link =
+
   <router-link :to="{ name: headerLink.linkName }">{{
     headerLink.linkValue
   }}</router-link>
 </template>
 
 <script setup lang="ts">
-import type { RouterLink } from "@/models/routerLink.models";
+import type { RouterLink } from "@/models/RouterLink.models";
 import type { PropType } from "vue";
 
 const props = defineProps({

@@ -1,6 +1,6 @@
 <template>
-  <div class="sidebar-option">
-    sidebar option=
+
+  <div @click="toggleModal" class="sidebar-option">
     <router-link :to="{ name: sideOption.sidebarName }">{{
       sideOption.sidebarValue
     }}</router-link>
@@ -9,12 +9,18 @@
 </template>
 
 <script setup lang="ts">
-import type { sideBarOption } from "@/models/sideBarOptions.model";
+
+import type { sideBarOption } from "@/models/SideBarOptions.model";
 import type { PropType } from "vue";
 
 const props = defineProps({
   sideOption: { type: Object as PropType<sideBarOption>, required: true },
 });
+const emit = defineEmits(['showModal'])
+
+function toggleModal(){
+  emit('showModal')
+}
 </script>
 
 <style scoped lang="scss">

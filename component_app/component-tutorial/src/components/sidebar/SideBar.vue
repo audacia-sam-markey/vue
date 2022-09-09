@@ -1,7 +1,9 @@
 <template>
-  <div class="container-sidebar">
+  <Modal @close="modalMessage = ''" :modal-message="modalMessage" />
+  <div class="container-sidebar sidebar">
     2. SIDEBAR
-    <SideBarOptions
+    <SideBarOptionVue
+      @showModal="toggleModal"
       v-for="option in sidebarOptions"
       :key="option.sidebarValue"
       :sideOption="option"
@@ -10,8 +12,11 @@
 </template>
 
 <script setup lang="ts">
-import { sideBarOption } from "@/models/sideBarOptions.model";
-import SideBarOptions from "./SideBarOptions.vue";
+import { sideBarOption } from "@/models/SideBarOptions.model";
+import SideBarOptionVue from "./SideBarOptionVue.vue";
+import Modal from "../Modal.vue";
+import { type Ref, ref } from "vue";
+const modalMessage: Ref<string> = ref("");
 
 const sidebarOptions: sideBarOption[] = [
   new sideBarOption(
@@ -27,6 +32,10 @@ const sidebarOptions: sideBarOption[] = [
     "ksi img"
   ),
 ];
+function toggleModal() {
+  modalMessage.value =
+    "content is not available at the moment please try again later...";
+}
 </script>
 
 <style lang="scss" scoped>
