@@ -1,7 +1,7 @@
 <template>
   <Modal @close="modalMessage = ''" :modal-message="modalMessage" />
   <div class="container-sidebar sidebar">
-    2. SIDEBAR
+Trending
     <SideBarOptionVue
       @showModal="toggleModal"
       v-for="option in sidebarOptions"
@@ -40,6 +40,7 @@ function toggleModal() {
 
 <style lang="scss" scoped>
 .container-sidebar {
+
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

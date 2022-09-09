@@ -2,13 +2,11 @@
 import { RouterView } from "vue-router";
 import HeaderNavigation from "@/components/header/HeaderNavigation.vue";
 import Sidebar from "@/components/sidebar/SideBar.vue";
-
-import LoadingSpinner from "@/components/LoadingSpinner.vue";
 import ChatMessaging from "@/components/chat-messaging/ChatMessaging.vue";
-import { ref, type Ref } from "vue";
 
-const loadingData: Ref<boolean> = ref(false);
-const messageState: Ref<boolean> = ref(false);
+
+
+
 </script>
 
 <template>
@@ -16,7 +14,7 @@ const messageState: Ref<boolean> = ref(false);
   <Sidebar  />
 
   <ChatMessaging />
-  <LoadingSpinner v-show="loadingData" id="loading-spinner" />
+
   <RouterView />
 </template>
 

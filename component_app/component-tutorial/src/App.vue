@@ -29,4 +29,10 @@ html {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
 }
+
+a {
+  border: none;
+  text-decoration: none;
+  color: rgb(63, 63, 63);
+}
 </style>

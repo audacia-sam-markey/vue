@@ -23,10 +23,9 @@ function loadNewMessages() {
 <style lang="scss" scoped>
 .friend-container {
   padding: 5px;
-  border: solid 2px #000;
-  max-width: 100%;
+ background-color: lightgrey;
+  width: 100%;
   height: 100px;
-  flex-grow: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,12 +34,12 @@ function loadNewMessages() {
   transition: background-color 0.1s ease-in-out;
 
   &:hover {
-    background-color: lightcoral;
+    background-color: rgb(108, 108, 108);
   }
 
   img {
-    max-width: 30%;
-    border-radius: 50px;
+    max-width: 40%;
+    border-radius: 5px;
   }
 
   h2 {

@@ -1,6 +1,6 @@
 <template>
   <div class="friend-list-container">
-    Friends List:
+ 
     <FriendVue
       v-for="friend in friends"
       :key="friend.name"
@@ -65,10 +65,10 @@ function loadSpinner() {
   padding: 1rem;
   height: 100%;
   background-color: rgb(240, 240, 240);
-  width: 20%;
+  width: 30%;
   display: flex;
   max-height: 86vh;
   flex-direction: column;
-  gap: 3px;
+  gap: 5px;
 }
 </style>
