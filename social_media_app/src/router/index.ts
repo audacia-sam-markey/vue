@@ -1,4 +1,4 @@
-import { navigatinoStore } from "./../stores/navigationStore";
+import { navigatinoStore } from "../stores/navigation.store";
 import PostView from "@/views/PostView.vue";
 import ChatView from "@/views/ChatView.vue";
 import SignIn from "@/views/SignIn.vue";

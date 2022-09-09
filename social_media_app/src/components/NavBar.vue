@@ -21,9 +21,16 @@
         </button>
         <div id="profile-options" v-show="navOptions.showAccountOptions">
           <ul>
-            <li><router-link :to="{ name: 'signIn' }">Sign in</router-link></li>
-            <li><router-link :to="{ name: 'signUp' }">Sign up</router-link></li>
-            <li>
+            <li v-if="!userStore.isUserLoggedIn">
+              <router-link :to="{ name: 'signIn' }">Sign in</router-link>
+            </li>
+            <li v-if="!userStore.isUserLoggedIn">
+              <router-link :to="{ name: 'signUp' }">Sign up</router-link>
+            </li>
+            <li @click="userStore.toggleisUserLoggedIn" v-else>
+              <router-link :to="{ name: 'home' }">Sign Out</router-link>
+            </li>
+            <li v-if="userStore.isUserLoggedIn">
               <router-link :to="{ name: 'accountHome' }"
                 >Account Home</router-link
               >
@@ -38,9 +45,11 @@
 </template>
 
 <script setup lang="ts">
-import { navigatinoStore } from "@/stores/navigationStore";
+import { navigatinoStore } from "@/stores/navigation.store";
+import { UserStore } from "@/stores/user.store";
 
 const navOptions = navigatinoStore();
+const userStore = UserStore();
 </script>
 
 <style lang="scss">

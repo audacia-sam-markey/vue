@@ -1,43 +1,14 @@
-<script setup lang="ts"></script>
-
 <template>
   <div>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea,
-    necessitatibus voluptates temporibus sequi iste minus, vero atque itaque
-    fugiat excepturi eligendi! Vel possimus beatae molestias id eius facere
-    delectus?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea,
-    necessitatibus voluptates temporibus sequi iste minus, vero atque itaque
-    fugiat excepturi eligendi! Vel possimus beatae molestias id eius facere
-    delectus?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea,
-    necessitatibus voluptates temporibus sequi iste minus, vero atque itaque
-    fugiat excepturi eligendi! Vel possimus beatae molestias id eius facere
-    delectus?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea,
-    necessitatibus voluptates temporibus sequi iste minus, vero atque itaque
-    fugiat excepturi eligendi! Vel possimus beatae molestias id eius facere
-    delectus?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea,
-    necessitatibus voluptates temporibus sequi iste minus, vero atque itaque
-    fugiat excepturi eligendi! Vel possimus beatae molestias id eius facere
-    delectus?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea,
-    necessitatibus voluptates temporibus sequi iste minus, vero atque itaque
-    fugiat excepturi eligendi! Vel possimus beatae molestias id eius facere
-    delectus?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea,
-    necessitatibus voluptates temporibus sequi iste minus, vero atque itaque
-    fugiat excepturi eligendi! Vel possimus beatae molestias id eius facere
-    delectus?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea,
-    necessitatibus voluptates temporibus sequi iste minus, vero atque itaque
-    fugiat excepturi eligendi! Vel possimus beatae molestias id eius facere
-    delectus?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea,
-    necessitatibus voluptates temporibus sequi iste minus, vero atque itaque
-    fugiat excepturi eligendi! Vel possimus beatae molestias id eius facere
-    delectus?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea,
-    necessitatibus voluptates temporibus sequi iste minus, vero atque itaque
-    fugiat excepturi eligendi! Vel possimus beatae molestias id eius facere
-    delectus?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea,
-    necessitatibus voluptates temporibus sequi iste minus, vero atque itaque
-    fugiat excepturi eligendi! Vel possimus beatae molestias id eius facere
-    delectus?
+    <AlertVue v-if="alertStore.$state.alertState" />
   </div>
 </template>
+<script setup lang="ts">
+import AlertVue from "../components/AlertModal.vue";
+import { AlertStore } from "@/stores/alert.store";
+
+const alertStore = AlertStore();
+</script>
 
 <style scoped lang="scss">
 div {

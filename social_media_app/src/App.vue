@@ -5,17 +5,12 @@
 </template>
 
 <script setup lang="ts">
-import Nav from "@/components/Nav.vue";
+import Nav from "@/components/NavBar.vue";
 import Sidebar from "@/components/Sidebar.vue";
-import { computed } from "@vue/reactivity";
+import { computed } from "vue";
 import { useRouter } from "vue-router";
-import { UserStore } from "./stores/UserStore";
-
 
 const router = useRouter();
-
-const userStore = UserStore()
-
 
 const showSidebar = computed(
   () =>
@@ -23,7 +18,7 @@ const showSidebar = computed(
     router.currentRoute.value.name === "signIn"
 );
 
-components: {
+{
   Nav;
 }
 </script>

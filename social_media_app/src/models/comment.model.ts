@@ -1,6 +1,5 @@
-import { v4 as uuidv4 } from "uuid";
 export class Comment {
-  id: string = uuidv4();
+  id: string = crypto.randomUUID();
   content: string;
   userId: string;
   postId: string;

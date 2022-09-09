@@ -1,8 +1,7 @@
-import { v4 as uuidv4 } from "uuid";
-import type { IPost } from "@/interfaces/ipost.interface";
-import type { Comment } from "@/modals/Comment.modal";
+import type { IPost } from "@/interfaces/post.interface";
+import type { Comment } from "@/models/comment.model";
 export class Post implements IPost {
-  id: string = uuidv4();
+  id: string = crypto.randomUUID();
   comments: Comment[] = [];
   title: string;
   content: string;

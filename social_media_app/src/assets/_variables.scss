@@ -1,8 +1,9 @@
 $rounded: 0.5vmin;
 $foreground: #fff;
 $background: #000;
-$success:#16ad49;
-$highlight: #eb0029;
+$success: #16ad49;
+$highlight: #529471;
+$error: #bc1717;
 
 $successHover: darken($success, 10%);
 $highlightHover: darken($highlight, 10%);

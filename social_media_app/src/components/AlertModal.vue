@@ -1,4 +1,3 @@
-
 <template>
   <div class="blur"></div>
   <div class="alert-container">
@@ -13,12 +12,10 @@
 </template>
 
 <script setup lang="ts">
-import { AlertStore } from "@/stores/AlertStore";
+import { AlertStore } from "@/stores/alert.store";
 
 const alertStore = AlertStore();
-const props = defineProps({
-  message: { type: String, required: true },
-});
+const message = alertStore.$state.alertMessage;
 </script>
 
 <style scoped lang="scss">
@@ -63,6 +60,7 @@ $alertHeight: 25vmin;
   }
 
   .message {
+    text-align: center;
     text-transform: capitalize;
     letter-spacing: 0.3rem;
     font-weight: bold;

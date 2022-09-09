@@ -1,7 +1,7 @@
 <template>
-  <div></div>
+  <div>3. CHAT MESSAGING</div>
 </template>
 
 <script setup lang="ts"></script>
 
-<style scoped lang="scss"></style>
+<style scoped></style>
