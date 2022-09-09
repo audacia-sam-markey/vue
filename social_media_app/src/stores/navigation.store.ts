@@ -1,7 +1,7 @@
 import { ref, type Ref } from "vue";
 import { defineStore } from "pinia";
 
-export const navigatinoStore = defineStore("navigationStore", {
+export const navStore = defineStore("navigationStore", {
   state: () => ({
     showAccountOptions: ref(false) as Ref<boolean>,
   }),

@@ -45,10 +45,10 @@
 </template>
 
 <script setup lang="ts">
-import { navigatinoStore } from "@/stores/navigation.store";
+import { navStore } from "@/stores/navigation.store";
 import { UserStore } from "@/stores/user.store";
 
-const navOptions = navigatinoStore();
+const navOptions = navStore();
 const userStore = UserStore();
 </script>
 

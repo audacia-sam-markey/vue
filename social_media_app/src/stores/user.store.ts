@@ -11,18 +11,16 @@ usersInLocalStorage !== null
   : (users = []);
 export const UserStore = defineStore("UserStore", {
   state: () => ({
-    isUserLoggedIn: ref(
-      Boolean(localS.getItem("isUserLoggedIn")) || (ref(false) as Ref<boolean>)
-    ),
+    isUserLoggedIn: ref(localS.getItem("isUserLoggedIn") === "true"),
     currentUser: undefined as undefined | User,
   }),
   actions: {
     toggleisUserLoggedIn(): void {
       // FIX LOGGING OUT ISSUE TOGGLING NOT WORKING AS MUCH
       this.isUserLoggedIn = !this.isUserLoggedIn;
-      console.log("setting localstorage to log user out");
+      console.log("setting localstorage to log user out", this.isUserLoggedIn);
 
-      localS.setItem("isUserLoggedIn", (!this.isUserLoggedIn).toString());
+      localS.setItem("isUserLoggedIn", this.isUserLoggedIn.toString());
     },
     changeCurrentUser(username: string): void {
       this.currentUser = new User();

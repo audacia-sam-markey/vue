@@ -1,4 +1,4 @@
-import { navigatinoStore } from "../stores/navigation.store";
+import { navStore } from "../stores/navigation.store";
 import PostView from "@/views/PostView.vue";
 import ChatView from "@/views/ChatView.vue";
 import SignIn from "@/views/SignIn.vue";
@@ -46,7 +46,7 @@ const router = createRouter({
 
 //reset values
 router.beforeEach(() => {
-  navigatinoStore().resetAccountOptions();
+  navStore().resetAccountOptions();
 });
 
 export default router;
