@@ -27,7 +27,7 @@
             <li v-if="!userStore.isUserLoggedIn">
               <router-link :to="{ name: 'signUp' }">Sign up</router-link>
             </li>
-            <li @click="userStore.toggleisUserLoggedIn" v-else>
+            <li @click="signOutUser" v-else>
               <router-link :to="{ name: 'home' }">Sign Out</router-link>
             </li>
             <li v-if="userStore.isUserLoggedIn">
@@ -50,6 +50,10 @@ import { UserStore } from "@/stores/user.store";
 
 const navOptions = navStore();
 const userStore = UserStore();
+function signOutUser() {
+  userStore.toggleisUserLoggedIn();
+  userStore.logUserOut();
+}
 </script>
 
 <style lang="scss">

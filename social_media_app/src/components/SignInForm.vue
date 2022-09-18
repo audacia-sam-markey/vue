@@ -29,28 +29,29 @@ const usernamePasswordNotMatch: string =
   "Username or password does not match please try again...";
 function signInUser() {
   userStore.changeCurrentUser(username.value);
+
+  newInputError.value.usernameError = "";
   if (username.value.length <= 0) {
     newInputError.value.usernameError = "Please enter a valid username";
   } else if (password.value.length <= 0) {
     newInputError.value.usernameError = " Please enter a valid password";
-  } else if (userStore.$state.currentUser === undefined) {
-    console.log(userStore.$state.currentUser);
-
+  } else if (userStore.$state.currentUser === null) {
     newInputError.value.usernameError = usernamePasswordNotMatch;
   } else {
     //
 
-    const currentLoggedInUser: User = userStore.$state.currentUser;
-
-    if (currentLoggedInUser.comparePassword(password.value)) {
-      userStore.toggleisUserLoggedIn();
-      router.push({ name: "home" });
-      alertStore.changeAlertMessage(
-        `Welcome ${userStore.$state.currentUser.username}`
-      );
-      alertStore.toggleAlert();
-    } else {
-      newInputError.value.usernameError = usernamePasswordNotMatch;
+    const currentLoggedInUser: User | null = userStore.currentUser;
+    if (currentLoggedInUser) {
+      if (currentLoggedInUser.comparePassword(password.value)) {
+        userStore.toggleisUserLoggedIn();
+        router.push({ name: "home" });
+        alertStore.changeAlertMessage(
+          `Welcome ${currentLoggedInUser.username}`
+        );
+        alertStore.toggleAlert();
+      } else {
+        newInputError.value.usernameError = usernamePasswordNotMatch;
+      }
     }
   }
 }

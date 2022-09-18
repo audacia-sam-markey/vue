@@ -1,5 +1,5 @@
 <template>
-  <div>accoutn home</div>
+  <div></div>
 </template>
 
 <script setup lang="ts"></script>

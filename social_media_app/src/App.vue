@@ -6,10 +6,17 @@
 
 <script setup lang="ts">
 import Nav from "@/components/NavBar.vue";
-import Sidebar from "@/components/Sidebar.vue";
+import Sidebar from "@/components/SideBar.vue";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
+import { localS, UserStore } from "./stores/user.store";
 
+const usernameInStorage: string | null = localS.getItem("username");
+if (usernameInStorage) {
+  const userStore = UserStore();
+
+  userStore.changeCurrentUser(usernameInStorage);
+}
 const router = useRouter();
 
 const showSidebar = computed(
@@ -121,6 +128,7 @@ input[type="submit"] {
   }
 }
 label,
+textarea,
 input {
   font-size: 1rem;
   width: 80%;
@@ -130,9 +138,14 @@ label {
   @include flexTemp(column, center, center);
 }
 
-input {
+input,
+textarea {
   border: $background 2px solid;
   border-radius: $rounded;
   padding: 0.5rem;
+}
+
+textarea {
+  resize: vertical;
 }
 </style>

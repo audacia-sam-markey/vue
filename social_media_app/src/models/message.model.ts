@@ -1,15 +1,13 @@
-export class Comment {
+export class message {
   id: string = crypto.randomUUID();
-  content: string;
-  userId: string;
-  postId: string;
+  userId!: string;
+  content!: string;
   dateCreated: string = `${new Date().getHours()}:${new Date().getMinutes()}-${
     new Date().getDate
   }/${new Date().getMonth()}/${new Date().getFullYear()}`;
 
-  constructor(content: string, userId: string, postId: string) {
+  constructor(userId: string, content: string) {
     this.content = content;
     this.userId = userId;
-    this.postId = postId;
   }
 }

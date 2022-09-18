@@ -1,31 +1,39 @@
 import { User } from "@/models/user.model";
 import { defineStore } from "pinia";
 import bcrypt from "bcryptjs";
-import { ref, type Ref } from "vue";
+import { ref } from "vue";
+
 export const localS: Storage = localStorage;
 export let users: User[];
+
 const usersInLocalStorage: string | null = localS.getItem("users");
 
 usersInLocalStorage !== null
   ? (users = JSON.parse(usersInLocalStorage))
   : (users = []);
+
 export const UserStore = defineStore("UserStore", {
   state: () => ({
     isUserLoggedIn: ref(localS.getItem("isUserLoggedIn") === "true"),
-    currentUser: undefined as undefined | User,
+    currentUser: null as null | User,
   }),
   actions: {
     toggleisUserLoggedIn(): void {
-      // FIX LOGGING OUT ISSUE TOGGLING NOT WORKING AS MUCH
       this.isUserLoggedIn = !this.isUserLoggedIn;
       console.log("setting localstorage to log user out", this.isUserLoggedIn);
 
       localS.setItem("isUserLoggedIn", this.isUserLoggedIn.toString());
     },
+    logUserOut(): void {
+      this.currentUser = null;
+      localS.removeItem("username");
+    },
     changeCurrentUser(username: string): void {
-      this.currentUser = new User();
       const cUser: User | undefined = this.getUserDetails(username);
+
+      // because it was stored in JSON it bneeds to be converted to a class to use its full functionality
       if (cUser !== undefined) {
+        this.currentUser = new User();
         this.currentUser.firstname = cUser.firstname;
         this.currentUser.lastname = cUser.lastname;
         this.currentUser.id = cUser.id;
@@ -52,7 +60,19 @@ export const UserStore = defineStore("UserStore", {
       return hashedPassword;
     },
     getUserDetails(username: string): User | undefined {
+      console.log(username);
+
+      console.log(users.find((user) => user.username === username));
       return users.find((user) => user.username === username);
+    },
+    addNewPostToUsers() {
+      users.find((user) => {
+        if (user.username === this.currentUser?.username) {
+          user.posts = this.currentUser.posts;
+          console.log(user.posts);
+        }
+      });
+      localS.setItem("users", JSON.stringify(users));
     },
   },
   getters: {},
